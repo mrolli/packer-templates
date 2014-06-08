@@ -53,6 +53,7 @@
       "scripts": [
         "scripts/rhel/base.sh",
         "scripts/sshd.sh",
+        "scripts/rhel/vagrant.sh",
         "scripts/vagrant.sh"
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"

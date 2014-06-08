@@ -53,6 +53,7 @@
       "scripts": [
         "scripts/rhel/base.sh",
         "scripts/sshd.sh",
+        "scripts/rhel/vagrant.sh",
         "scripts/vagrant.sh",
         "scripts/rhel/puppet.sh"
       ],
@@ -101,7 +102,7 @@
           "output": "build/centos-65-x64-virtualbox-puppet.box"
         },
         "vmware": {
-          "output": "build/centos-65-x64-vmware.box-puppet"
+          "output": "build/centos-65-x64-vmware-puppet.box"
         }
       }
     }

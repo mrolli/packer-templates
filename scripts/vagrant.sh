@@ -6,9 +6,6 @@ date > /etc/vagrant_box_build_time
 # Customize the message of the day
 echo 'Welcome to your Vagrant-built virtual machine.' > /etc/motd
 
-# Disable requiretty
-sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
-
 # Setup vagrant user
 mkdir -pm 700 /home/vagrant/.ssh
 curl --insecure -L https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -o /home/vagrant/.ssh/authorized_keys
