@@ -33,9 +33,8 @@ Parallel builds can be run on 0.6.0 or latest packer version.
 
 Each OS template is available in three different flavors:
 
-* `<os>-bare.json`: Simple minimal installation without vagrant user and guest additions
-* `<os>.json`: Standard vagrant base box with vagrant user, guest additions
-* `<os>-puppet.json`: Standard vagrant base box like above and with puppet already installed
+* `<os>.json`: Standard base box with vagrant user, guest additions
+* `<os>-puppet.json`: Standard base box like above and with puppet already installed
 
 Pick those you need. If you need another flavor, please open up a PR.
 
