@@ -52,6 +52,7 @@
       "type": "shell",
       "scripts": [
         "scripts/rhel/cleanup.sh",
+        "scripts/sshd.sh",
         "scripts/cleanup.sh",
         "scripts/compact.sh"
       ],
