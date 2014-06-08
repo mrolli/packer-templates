@@ -1,10 +1,8 @@
-Packer Templates
-================
+# Packer Templates
 
 Packer templates for building base VM boxes.
 
-Usage
------
+## Usage
 
 ### Installing Packer
 
@@ -35,18 +33,17 @@ Parallel builds can be run on 0.6.0 or latest packer version.
 
 Each OS template is available in three different flavors:
 
-* <os>-bare.json: Simple minimal installation without vagrant user and guest additions
-* <os>.json: Standard vagrant base box with vagrant user, guest additions
-* <os>-puppet: Standard vagrant base box like above and with puppet already installed
+* `<os>-bare.json`: Simple minimal installation without vagrant user and guest additions
+* `<os>.json`: Standard vagrant base box with vagrant user, guest additions
+* `<os>-puppet.json`: Standard vagrant base box like above and with puppet already installed
 
 Pick those you need. If you need another flavor, please open up a PR.
 
 ### Supported versions
 
-This templates was tested using a packer 0.6.0 .
+This templates was tested using a packer 0.6.0.
 
-Credits
--------
+## Credits
 
 These packer templates were built by considering different sources of inspiraiton. Therefore credits to whom it belongs:
 
@@ -54,8 +51,7 @@ These packer templates were built by considering different sources of inspiraito
 * Patrick Debois (jedi4ever)
 * 時雨堂(shiguredo)
 
-Changelog
----------
+## Changelog
 
 See `git shortlog` for the list of changes.
 
