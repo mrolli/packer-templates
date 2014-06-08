@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Install Puppet
+# Prepare puppetlabs repo
 cat > /etc/yum.repos.d/puppetlabs.repo << EOM
 [puppetlabs-dependencies]
 name=puppetlabdsdependencies
@@ -15,6 +15,7 @@ enabled=1
 gpgcheck=0
 EOM
 
+# Install puppet stuff
 yum -y install puppet facter hiera ruby-shadow
 
 exit 0
