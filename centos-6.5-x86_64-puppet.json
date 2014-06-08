@@ -1,0 +1,109 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+      "iso_checksum": "f21a71e8e31df73297bdd1ccd4a64a36831284bd",
+      "iso_checksum_type": "sha1",
+      "boot_wait": "5s",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.5-x86_64/ks.cfg<enter><wait>"
+      ],
+      "disk_size": 40520,
+      "http_directory": "http",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "20m",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "guest_os_type": "RedHat_64",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        [ "modifyvm", "{{.Name}}", "--memory", "512" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
+      ]
+    },
+    {
+      "type": "vmware-iso",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+      "iso_checksum": "f21a71e8e31df73297bdd1ccd4a64a36831284bd",
+      "iso_checksum_type": "sha1",
+      "boot_wait": "5s",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.5-x86_64/ks.cfg<enter><wait>"
+      ],
+      "disk_size": 40520,
+      "http_directory": "http",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "20m",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "guest_os_type": "centos-64",
+      "tools_upload_flavor": "linux",
+      "vmx_data": {
+        "memsize": "512",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/rhel/base.sh",
+        "scripts/vagrant.sh",
+        "scripts/rhel/puppet.sh"
+      ],
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/rhel/virtualbox.sh",
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+        },
+        "vmware-iso": {
+          "execute_command": "/bin/true"
+        }
+      }
+    },
+    {
+      "type": "shell",
+      "script": "scripts/rhel/vmware.sh",
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "/bin/true"
+        },
+        "vmware-iso": {
+          "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+        }
+      }
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/rhel/cleanup.sh",
+        "scripts/cleanup.sh",
+        "scripts/compact.sh"
+      ],
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "override": {
+        "virtualbox": {
+          "output": "build/centos-65-x64-virtualbox-puppet.box"
+        },
+        "vmware": {
+          "output": "build/centos-65-x64-vmware.box-puppet"
+        }
+      }
+    }
+  ]
+}
+
