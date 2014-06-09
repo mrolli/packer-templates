@@ -1,14 +1,41 @@
 #!/usr/bin/env bash
 
-cat > /etc/yum.repos.d/epel.repo << EOM
-[epel]
-name=epel
-baseurl=http://download.fedoraproject.org/pub/epel/6/\$basearch
-enabled=1
-gpgcheck=0
+set -e
+
+# Determine out the OS major version and EPEL release package name
+OS_MAJ_VER=`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release) | cut -c 1`
+PLATFORM=`uname -i`
+
+case $OS_MAJ_VER in
+  5)
+    EPEL_PKG='epel-release-5-4.noarch.rpm'
+  ;;
+  6)
+    EPEL_PKG='epel-release-6-8.noarch.rpm'
+  ;;
+  7)
+    EPEL_PKG='epel-release-7-0.1.noarch.rpm'
+  ;;
+  *)
+    echo "Unsupported rhel major version: ${OS_MAJ_VER}" >&2
+    exit 1
+  ;;
+esac
+
+REPO_URL="http://mirror.switch.ch/ftp/mirror/epel/${OS_MAJ_VER}/${PLATFORM}/${EPEL_PKG}"
+
+# Install the EPEL repository
+echo "Configuring EPEL repository for ${EPEL_PKG} on ${PLATFORM}."
+REPO_PATH=$(mktemp)
+wget --output-document="${REPO_PATH}" "${REPO_URL}" 2>/dev/null
+rpm -i "${REPO_PATH}" >/dev/null
+rm -f $REPO_PATH >/dev/null
 EOM
 
-yum -y install gcc make gcc-c++ kernel-devel-`uname -r` kernel-headers-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils
+# Install packages that are dependencies later in the process
+echo 'Installing packages for dependency.'
+yum -y install gcc make gcc-c++ kernel-devel-`uname -r` kernel-headers-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils >/dev/null
+echo "Dependencies installed"
 
 exit 0
 
