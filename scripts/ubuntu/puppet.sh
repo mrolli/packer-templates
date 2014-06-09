@@ -21,3 +21,4 @@ apt-get install -y puppet hiera facter >/dev/null
 echo "Puppet installed!"
 
 exit 0
+
