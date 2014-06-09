@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-yum install -y fuse-libs
+echo 'Installing vmware-tools.'
+yum install -y fuse-libs >/dev/null
 mkdir -p /mnt/vmware
 mount -o loop /home/vagrant/linux.iso /mnt/vmware
 

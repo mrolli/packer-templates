@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Deleting package manager caches..."
+echo 'Deleting package manager caches.'
 if type apt-get >/dev/null 2>&1; then
     apt-get -y autoremove
     apt-get clean
@@ -10,7 +10,7 @@ if type yum >/dev/null 2>&1; then
     yum clean all
 fi
 
-echo "Zeroing device to make space..."
+echo 'Zeroing device to make space.'
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 # Block until the empty file has been removed, otherwise, Packer
