@@ -1,6 +1,11 @@
 # Packer Templates
 
-Packer templates for building base VM boxes.
+Packer templates for building base VM boxes. Curently the following operating systems
+are supported:
+
+* CentOS-6.5 (Santiago) x86\_64
+* Ubuntu Server 12.04 (precise) x86\_64
+* Ubuntu Server 14.04 (trusty) x86\_64
 
 ## Usage
 

@@ -2,13 +2,13 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso",
-      "iso_checksum": "3aeb42816253355394897ae80d99a9ba56217c0e98e05294b51f0f5b13bceb54",
+      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-server-14.04-server-amd64.iso",
+      "iso_checksum": "ababb88a492e08759fddcf4f05e5ccc58ec9d47fa37550d63931d0a5fa4f7388",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-server-12.04-x86_64/preseed.cfg ",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-14.04-server-x86_64/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
@@ -31,13 +31,13 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso",
-      "iso_checksum": "3aeb42816253355394897ae80d99a9ba56217c0e98e05294b51f0f5b13bceb54",
+      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-server-14.04-server-amd64.iso",
+      "iso_checksum": "ababb88a492e08759fddcf4f05e5ccc58ec9d47fa37550d63931d0a5fa4f7388",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-server-12.04-x86_64/preseed.cfg ",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-14.04-server-x86_64/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
@@ -109,10 +109,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/ubuntu-12.04-x64-virtualbox.box"
+          "output": "build/ubuntu-14.04-server-x86_64-virtualbox.box"
         },
         "vmware": {
-          "output": "build/ubuntu-12.04-x64-vmware.box"
+          "output": "build/ubuntu-14.04-server-x86_64-vmware.box"
         }
       }
     }

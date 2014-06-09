@@ -8,7 +8,7 @@
       "boot_wait": "5s",
       "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-server-12.04-x86_64/preseed.cfg ",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-12.04-server-x86_64/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
@@ -37,7 +37,7 @@
       "boot_wait": "5s",
       "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-server-12.04-x86_64/preseed.cfg ",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-12.04-server-x86_64/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
@@ -110,10 +110,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/ubuntu-12.04-x64-virtualbox-puppet.box"
+          "output": "build/ubuntu-12.04-server-x86_64-puppet-virtualbox.box"
         },
         "vmware": {
-          "output": "build/ubuntu-12.04-x64-vmware-puppet.box"
+          "output": "build/ubuntu-12.04-server-x86_64-puppet-vmware.box"
         }
       }
     }
