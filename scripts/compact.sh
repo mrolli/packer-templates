@@ -2,6 +2,7 @@
 
 echo "Deleting package manager caches..."
 if type apt-get >/dev/null 2>&1; then
+    apt-get -y autoremove
     apt-get clean
 fi
 
