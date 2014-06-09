@@ -99,10 +99,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-65-x64-virtualbox-puppet.box"
+          "output": "build/centos-6.5-x64-virtualbox-puppet.box"
         },
         "vmware": {
-          "output": "build/centos-65-x64-vmware-puppet.box"
+          "output": "build/centos-6.5-x64-vmware-puppet.box"
         }
       }
     }

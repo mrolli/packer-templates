@@ -98,10 +98,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-65-x64-virtualbox.box"
+          "output": "build/centos-6.5-x64-virtualbox.box"
         },
         "vmware": {
-          "output": "build/centos-65-x64-vmware.box"
+          "output": "build/centos-6.5-x64-vmware.box"
         }
       }
     }
