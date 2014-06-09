@@ -16,7 +16,7 @@ rpm -i "${REPO_PATH}" >/dev/null
 rm -f $REPO_PATH >/dev/null
 
 # Install puppet stuff
-apt-get install -y puppet hiera facter >/dev/null
+yum -y install puppet hiera facter >/dev/null
 echo "Puppet installed!"
 
 exit 0
