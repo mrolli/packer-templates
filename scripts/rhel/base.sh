@@ -27,10 +27,9 @@ REPO_URL="http://mirror.switch.ch/ftp/mirror/epel/${OS_MAJ_VER}/${PLATFORM}/${EP
 # Install the EPEL repository
 echo "Configuring EPEL repository for ${EPEL_PKG} on ${PLATFORM}."
 REPO_PATH=$(mktemp)
-wget --output-document="${REPO_PATH}" "${REPO_URL}" 2>/dev/null
+curl -k -L $REPO_URL -o $REPO_PATH
 rpm -i "${REPO_PATH}" >/dev/null
 rm -f $REPO_PATH >/dev/null
-EOM
 
 # Install packages that are dependencies later in the process
 echo 'Installing packages for dependency.'
