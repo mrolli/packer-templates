@@ -33,7 +33,7 @@ rm -f $REPO_PATH >/dev/null
 
 # Install packages that are dependencies later in the process
 echo 'Installing packages for dependency.'
-yum -y install gcc make gcc-c++ kernel-devel-`uname -r` kernel-headers-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils >/dev/null
+yum -y install gcc make gcc-c++ kernel-devel-`uname -r` kernel-headers-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils ntpdate >/dev/null
 echo "Dependencies installed"
 
 exit 0

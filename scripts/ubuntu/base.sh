@@ -7,7 +7,7 @@ apt-get -y dist-upgrade >/dev/null
 
 # Install packages needed
 echo 'Installing packages for dependency.'
-apt-get -y install build-essential linux-headers-$(uname -r) nfs-common
+apt-get -y install build-essential linux-headers-$(uname -r) nfs-common ntpdate >/dev/null
 
 # Reboot to load the new kernel
 echo 'Rebooting the machine...'
