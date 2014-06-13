@@ -2,7 +2,7 @@
 
 # Clen up rhel specific stuff
 echo "Removing repo definition."
-rm -rf /etc/yum.repos.d/{puppetlabs,epel}.repo
+yum -y erase epel-release* puppetlabs-release*
 
 # Remove MAC from network interface config
 echo "Cleaning network interface configuration."
