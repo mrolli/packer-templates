@@ -14,7 +14,7 @@ are supported:
 Download the latest packer from <http://www.packer.io/downloads.html>
 and unzip the appropriate directory.
 
-If you are an OS X user consider installing packer using Homebrew:
+If you are an OS X user consider installing packer using [Homebrew](http://brew.sh/):
 
     $ brew tap homebrew/binary
     $ brew install packer
