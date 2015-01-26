@@ -14,7 +14,7 @@ case $OS_MAJ_VER in
     EPEL_PKG='epel-release-6-8.noarch.rpm'
   ;;
   7)
-    EPEL_PKG='epel-release-7-0.1.noarch.rpm'
+    EPEL_PKG='e/epel-release-7-5.noarch.rpm'
   ;;
   *)
     echo "Unsupported rhel major version: ${OS_MAJ_VER}" >&2
