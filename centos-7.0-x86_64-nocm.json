@@ -98,10 +98,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-7.0-1406-x86_64-virtualbox.box"
+          "output": "build/centos-7.0-x86_64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-7.0-1406-x86_64-vmware.box"
+          "output": "build/centos-7.0-x86_64-vmware-nocm.box"
         }
       }
     }
