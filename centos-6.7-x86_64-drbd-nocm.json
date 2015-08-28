@@ -2,12 +2,12 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-Minimal.iso",
-      "iso_checksum": "495a7d50eb7633c4667fbfc5e817bf244697c627",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-minimal.iso",
+      "iso_checksum": "2ed5ea551dffc3e4b82847b3cee1f6cd748e8071",
       "iso_checksum_type": "sha1",
       "boot_wait": "5s",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.0-1406-x86_64/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.7-x86_64/ks-drbd.cfg<enter><wait>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
@@ -25,12 +25,12 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-Minimal.iso",
-      "iso_checksum": "495a7d50eb7633c4667fbfc5e817bf244697c627",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-minimal.iso",
+      "iso_checksum": "2ed5ea551dffc3e4b82847b3cee1f6cd748e8071",
       "iso_checksum_type": "sha1",
       "boot_wait": "5s",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.0-1406-x86_64/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.7-x86_64/ks-drbd.cfg<enter><wait>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
@@ -54,8 +54,7 @@
         "scripts/rhel/base.sh",
         "scripts/sshd.sh",
         "scripts/rhel/vagrant.sh",
-        "scripts/vagrant.sh",
-        "scripts/rhel/puppet.sh"
+        "scripts/vagrant.sh"
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
     },
@@ -99,10 +98,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-7.0-x86_64-virtualbox-puppet.box"
+          "output": "build/centos-6.7-x86_64-virtualbox-drbd-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-7.0-x86_64-vmware-puppet.box"
+          "output": "build/centos-6.7-x86_64-vmware-drbd-nocm.box"
         }
       }
     }

@@ -2,8 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso",
-      "iso_checksum": "3aeb42816253355394897ae80d99a9ba56217c0e98e05294b51f0f5b13bceb54",
+      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.5-server-amd64.iso",
+      "iso_checksum": "af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -31,8 +31,8 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso",
-      "iso_checksum": "3aeb42816253355394897ae80d99a9ba56217c0e98e05294b51f0f5b13bceb54",
+      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.5-server-amd64.iso",
+      "iso_checksum": "af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [

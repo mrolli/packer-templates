@@ -39,7 +39,7 @@ Parallel builds can be run on 0.6.0 or latest packer version.
 
 Each OS template is available in three different flavors:
 
-* `<os>.json`: Standard base box with vagrant user, guest additions
+* `<os>-nocm.json`: Standard base box with vagrant user, guest additions, but without any configuration management preinstalled
 * `<os>-puppet.json`: Standard base box like above and with puppet already installed
 
 Pick those you need. If you need another flavor, please open up a PR.
