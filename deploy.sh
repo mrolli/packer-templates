@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BUILD_DIR="build"
+BUILD_DIR="build/vbox-"`VBoxManage --version`
 BUILD_FILE_PREFIX="built-for-virtualbox"
 BUILD_FILE=$BUILD_DIR/$BUILD_FILE_PREFIX-`VBoxMAnage --version`.txt
 
