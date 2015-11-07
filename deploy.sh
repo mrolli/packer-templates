@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-BUILD_DIR="build/vbox-"`VBoxManage --version`
-BUILD_FILE_PREFIX="built-for-virtualbox"
-BUILD_FILE=$BUILD_DIR/$BUILD_FILE_PREFIX-`VBoxMAnage --version`.txt
-
-if [ -z $1 ]; then
-  echo "USAGE: $0 <rsync_destination>"
+if [ $# -ne 2 ]; then
+  echo "USAGE: $0 <build-dir> <rsync_destination>"
   exit 1
 fi
 
-DESTINATION=$1
+#BUILD_DIR="build/vbox-"`VBoxManage --version`
+BUILD_DIR=$1
+BUILD_FILE_PREFIX="built-for-virtualbox"
+BUILD_FILE=$BUILD_DIR/$BUILD_FILE_PREFIX-`VBoxMAnage --version`.txt
+DESTINATION=$2
 
 # Delete old build file
 rm -f ${BUILD_DIR}/${BUILD_FILE_PREFIX}-*
