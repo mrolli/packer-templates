@@ -7,14 +7,11 @@ OS_MAJ_VER=`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release) | c
 PLATFORM=`uname -i`
 
 case $OS_MAJ_VER in
-  5)
-    EPEL_PKG='epel-release-5-4.noarch.rpm'
-  ;;
   6)
     EPEL_PKG='epel-release-6-8.noarch.rpm'
   ;;
   7)
-    EPEL_PKG='e/epel-release-7-5.noarch.rpm'
+    EPEL_PKG='e/epel-release-7-6.noarch.rpm'
   ;;
   *)
     echo "Unsupported rhel major version: ${OS_MAJ_VER}" >&2

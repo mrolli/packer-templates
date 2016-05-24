@@ -2,26 +2,21 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.5-server-amd64.iso",
-      "iso_checksum": "af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-12.04-server-x86_64/preseed.cfg ",
-        "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-        "hostname={{ .Name }} ",
-        "fb=false debconf/frontend=noninteractive ",
-        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-        "initrd=/install/initrd.gz -- <enter>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7-x86_64/ks.cfg<enter><wait>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
+      "ssh_pty": "true",
       "ssh_wait_timeout": "20m",
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-      "guest_os_type": "Ubuntu_64",
+      "guest_os_type": "RedHat_64",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
@@ -31,26 +26,21 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://releases.ubuntu.com/12.04/ubuntu-12.04.5-server-amd64.iso",
-      "iso_checksum": "af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-12.04-server-x86_64/preseed.cfg ",
-        "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-        "hostname={{ .Name }} ",
-        "fb=false debconf/frontend=noninteractive ",
-        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-        "initrd=/install/initrd.gz -- <enter>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7-x86_64/ks.cfg<enter><wait>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
+      "ssh_pty": "true",
       "ssh_wait_timeout": "20m",
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-      "guest_os_type": "ubuntu-64",
+      "guest_os_type": "centos-64",
       "tools_upload_flavor": "linux",
       "vmx_data": {
         "memsize": "512",
@@ -63,17 +53,16 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/ubuntu/base.sh",
+        "scripts/rhel/base.sh",
         "scripts/sshd.sh",
-        "scripts/ubuntu/vagrant.sh",
-        "scripts/vagrant.sh",
-        "scripts/ubuntu/puppet.sh"
+        "scripts/rhel/vagrant.sh",
+        "scripts/vagrant.sh"
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
     },
     {
       "type": "shell",
-      "script": "scripts/ubuntu/virtualbox.sh",
+      "script": "scripts/rhel/virtualbox.sh",
       "override": {
         "virtualbox-iso": {
           "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
@@ -85,7 +74,7 @@
     },
     {
       "type": "shell",
-      "script": "scripts/ubuntu/vmware.sh",
+      "script": "scripts/rhel/vmware.sh",
       "override": {
         "virtualbox-iso": {
           "execute_command": "/bin/true"
@@ -98,6 +87,7 @@
     {
       "type": "shell",
       "scripts": [
+        "scripts/rhel/cleanup.sh",
         "scripts/cleanup.sh",
         "scripts/compact.sh"
       ],
@@ -110,10 +100,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/ubuntu-12.04-amd64-virtualbox-puppet.box"
+          "output": "build/centos-7-x86_64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/ubuntu-12.04-amd64-vmware-puppet.box"
+          "output": "build/centos-7-x86_64-vmware-nocm.box"
         }
       }
     }

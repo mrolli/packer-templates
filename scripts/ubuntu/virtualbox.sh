@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Building dynamic kenrel modules might be a good idea.
-aptitude -y install dkms
+apt-get -y install dkms
 
 # Install the VirtualBox guest additions
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)

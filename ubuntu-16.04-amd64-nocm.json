@@ -2,21 +2,37 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7.1.1503/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
-      "iso_checksum": "7c1e34e95c991175290d704dbdcc6531774cbecb",
-      "iso_checksum_type": "sha1",
+      "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04-server-amd64.iso",
+      "iso_checksum": "b8b172cbdf04f5ff8adc8c2c1b4007ccf66f00fc6a324a6da6eba67de71746f6",
+      "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1-x86_64/ks.cfg<enter><wait>"
+        "<enter><wait>",
+        "<f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "/install/vmlinuz ",
+        "initrd=/install/initrd.gz ",
+        "net.ifnames=0 ",
+        "auto-install/enable=true ",
+        "debconf/priority=critical ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/ubuntu-16.04-server-x86_64/preseed.cfg ",
+        "<enter>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
-      "ssh_pty": "true",
       "ssh_wait_timeout": "20m",
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-      "guest_os_type": "RedHat_64",
+      "guest_os_type": "Ubuntu_64",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
@@ -26,21 +42,26 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/7.1.1503/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
-      "iso_checksum": "7c1e34e95c991175290d704dbdcc6531774cbecb",
-      "iso_checksum_type": "sha1",
+      "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04-server-amd64.iso",
+      "iso_checksum": "b8b172cbdf04f5ff8adc8c2c1b4007ccf66f00fc6a324a6da6eba67de71746f6",
+      "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1-x86_64/ks.cfg<enter><wait>"
+        "<esc><esc><enter><wait>",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-16.04-server-x86_64/preseed.cfg ",
+        "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+        "hostname={{ .Name }} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+        "initrd=/install/initrd.gz -- <enter>"
       ],
       "disk_size": 40520,
       "http_directory": "http",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
-      "ssh_pty": "true",
       "ssh_wait_timeout": "20m",
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
-      "guest_os_type": "centos-64",
+      "guest_os_type": "ubuntu-64",
       "tools_upload_flavor": "linux",
       "vmx_data": {
         "memsize": "512",
@@ -53,16 +74,16 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/rhel/base.sh",
+        "scripts/ubuntu/base.sh",
         "scripts/sshd.sh",
-        "scripts/rhel/vagrant.sh",
+        "scripts/ubuntu/vagrant.sh",
         "scripts/vagrant.sh"
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
     },
     {
       "type": "shell",
-      "script": "scripts/rhel/virtualbox.sh",
+      "script": "scripts/ubuntu/virtualbox.sh",
       "override": {
         "virtualbox-iso": {
           "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
@@ -74,7 +95,7 @@
     },
     {
       "type": "shell",
-      "script": "scripts/rhel/vmware.sh",
+      "script": "scripts/ubuntu/vmware.sh",
       "override": {
         "virtualbox-iso": {
           "execute_command": "/bin/true"
@@ -87,7 +108,6 @@
     {
       "type": "shell",
       "scripts": [
-        "scripts/rhel/cleanup.sh",
         "scripts/cleanup.sh",
         "scripts/compact.sh"
       ],
@@ -100,13 +120,12 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-7.1-x86_64-virtualbox-nocm.box"
+          "output": "build/ubuntu-16.04-amd64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-7.1-x86_64-vmware-nocm.box"
+          "output": "build/ubuntu-16.04-amd64-vmware-nocm.box"
         }
       }
     }
   ]
 }
-
