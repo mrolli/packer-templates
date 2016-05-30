@@ -100,10 +100,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-6-x86_64-virtualbox-nocm.box"
+          "output": "build/centos-6.8-x86_64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-6-x86_64-vmware-nocm.box"
+          "output": "build/centos-6.8-x86_64-vmware-nocm.box"
         }
       }
     }
