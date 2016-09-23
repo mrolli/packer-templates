@@ -5,24 +5,11 @@ set -e
 # Determine out the OS major version and EPEL release package name
 OS_MAJ_VER=`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release) | cut -c 1`
 PLATFORM=`uname -i`
-
-case $OS_MAJ_VER in
-  6)
-    EPEL_PKG='epel-release-6-8.noarch.rpm'
-  ;;
-  7)
-    EPEL_PKG='e/epel-release-7-6.noarch.rpm'
-  ;;
-  *)
-    echo "Unsupported rhel major version: ${OS_MAJ_VER}" >&2
-    exit 1
-  ;;
-esac
-
-REPO_URL="http://mirror.switch.ch/ftp/mirror/epel/${OS_MAJ_VER}/${PLATFORM}/${EPEL_PKG}"
+EPEL_PKG="epel-release-latest-${OS_MAJ_VER}.noarch.rpm"
+REPO_URL="http://mirror.switch.ch/ftp/mirror/epel/${EPEL_PKG}"
 
 # Install the EPEL repository
-echo "Configuring EPEL repository for ${EPEL_PKG} on ${PLATFORM}."
+echo "Configuring EPEL repository for ${EPEL_PKG}."
 REPO_PATH=$(mktemp)
 curl -k -L $REPO_URL -o $REPO_PATH
 rpm -i "${REPO_PATH}" >/dev/null
