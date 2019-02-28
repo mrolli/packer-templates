@@ -2,8 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.9-x86_64-minimal.iso",
-      "iso_checksum": "422af57b493b8af49d485885a730c5a1d955f803fac85aa51311c393168b9080",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+      "iso_checksum": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -26,8 +26,8 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.9-x86_64-minimal.iso",
-      "iso_checksum": "422af57b493b8af49d485885a730c5a1d955f803fac85aa51311c393168b9080",
+      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+      "iso_checksum": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -100,10 +100,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-6.9-x86_64-virtualbox-nocm.box"
+          "output": "build/centos-6.10-x86_64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-6.9-x86_64-vmware-nocm.box"
+          "output": "build/centos-6.10-x86_64-vmware-nocm.box"
         }
       }
     }
