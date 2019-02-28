@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+      "iso_url": "http://mirror.spreitzer.ch/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
       "iso_checksum": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
@@ -26,7 +26,7 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+      "iso_url": "http://mirror.spreitzer.ch/centos/6/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
       "iso_checksum": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
