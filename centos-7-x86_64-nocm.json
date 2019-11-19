@@ -2,8 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.spreitzer.ch/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso",
-      "iso_checksum": "38d5d51d9d100fd73df031ffd6bd8b1297ce24660dc8c13a3b8b4534a4bd291c",
+      "iso_url": "https://linuxsoft.cern.ch/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1908.iso",
+      "iso_checksum": "9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -26,8 +26,8 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.spreitzer.ch/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso",
-      "iso_checksum": "38d5d51d9d100fd73df031ffd6bd8b1297ce24660dc8c13a3b8b4534a4bd291c",
+      "iso_url": "https://linuxsoft.cern.ch/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1908.iso",
+      "iso_checksum": "9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -100,10 +100,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/centos-7.6-x86_64-virtualbox-nocm.box"
+          "output": "build/centos-7.7-x86_64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/centos-7.6-x86_64-vmware-nocm.box"
+          "output": "build/centos-7.7-x86_64-vmware-nocm.box"
         }
       }
     }

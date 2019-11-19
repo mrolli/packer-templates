@@ -2,8 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
-      "iso_checksum": "dde07d37647a1d2d9247e33f14e91acb10445a97578384896b4e1d985f754cc1",
+      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.6-server-amd64.iso",
+      "iso_checksum": "b17d7c1e9d0321ad5810ba77b69aef43f0f29a5422b08120e6ee0576c4527c0e",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -31,8 +31,8 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
-      "iso_checksum": "dde07d37647a1d2d9247e33f14e91acb10445a97578384896b4e1d985f754cc1",
+      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.6-server-amd64.iso",
+      "iso_checksum": "b17d7c1e9d0321ad5810ba77b69aef43f0f29a5422b08120e6ee0576c4527c0e",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [

@@ -2,8 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04.6-server-amd64.iso",
-      "iso_checksum": "16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac",
+      "iso_url": "http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso",
+      "iso_checksum": "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
@@ -23,7 +23,7 @@
         "net.ifnames=0 ",
         "auto-install/enable=true ",
         "debconf/priority=critical ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/ubuntu-16.04-server-x86_64/preseed.cfg ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/ubuntu-18.04-server-x86_64/preseed.cfg ",
         "<enter>"
       ],
       "disk_size": 40520,
@@ -42,13 +42,13 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04.6-server-amd64.iso",
-      "iso_checksum": "16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac",
+      "iso_url": "http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso",
+      "iso_checksum": "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63",
       "iso_checksum_type": "sha256",
       "boot_wait": "5s",
       "boot_command": [
         "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-16.04-server-x86_64/preseed.cfg ",
+        "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-18.04-server-x86_64/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
@@ -120,10 +120,10 @@
       "keep_input_artifact": false,
       "override": {
         "virtualbox": {
-          "output": "build/ubuntu-16.04-amd64-virtualbox-nocm.box"
+          "output": "build/ubuntu-18.04-amd64-virtualbox-nocm.box"
         },
         "vmware": {
-          "output": "build/ubuntu-16.04-amd64-vmware-nocm.box"
+          "output": "build/ubuntu-18.04-amd64-vmware-nocm.box"
         }
       }
     }
