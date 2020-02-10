@@ -3,10 +3,11 @@
 Packer templates for building base VM boxes. Curently the following operating systems
 are supported:
 
-* CentOS-6.9 x86\_64
-* CentOS-7.5-1808 x86\_64
+* CentOS-6.10 x86\_64
+* CentOS-7.7-1908 x86\_64
 * Ubuntu Server 14.04 (trusty) x86\_64
 * Ubuntu Server 16.04 (xenial) x86\_64
+* Ubuntu Server 18.04 (bionic) x86\_64
 
 ## Usage
 
