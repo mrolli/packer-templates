@@ -5,6 +5,7 @@ are supported:
 
 * CentOS-6.10 x86\_64
 * CentOS-7.7-1908 x86\_64
+* CentOS-8.2-2004 x86\_64
 * Ubuntu Server 14.04 (trusty) x86\_64
 * Ubuntu Server 16.04 (xenial) x86\_64
 * Ubuntu Server 18.04 (bionic) x86\_64

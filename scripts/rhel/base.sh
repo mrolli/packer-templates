@@ -2,11 +2,11 @@
 
 set -e
 
-# Determine out the OS major version and EPEL release package name
+# Determine the OS major version and EPEL release package name
 OS_MAJ_VER=`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release) | cut -c 1`
 PLATFORM=`uname -i`
 EPEL_PKG="epel-release-latest-${OS_MAJ_VER}.noarch.rpm"
-REPO_URL="http://mirror.switch.ch/ftp/mirror/epel/${EPEL_PKG}"
+REPO_URL="http://linuxsoft.cern.ch/epel/${EPEL_PKG}"
 
 # Install the EPEL repository
 echo "Configuring EPEL repository for ${EPEL_PKG}."
