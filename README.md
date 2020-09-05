@@ -3,9 +3,8 @@
 Packer templates for building base VM boxes. Curently the following operating systems
 are supported:
 
-* CentOS-6.10 x86\_64
-* CentOS-7.7-1908 x86\_64
-* CentOS-8.2-2004 x86\_64
+* CentOS-7
+* CentOS-8
 * Ubuntu Server 14.04 (trusty) x86\_64
 * Ubuntu Server 16.04 (xenial) x86\_64
 * Ubuntu Server 18.04 (bionic) x86\_64
@@ -28,27 +27,9 @@ If you are an macOS user consider installing packer using [Homebrew](http://brew
     $ cd packer-templates/<box-definition-dir>/
     $ packer build <template_name>.json
 
-If you want to build only virtualbox or vmware.
-
-    $ packer build -only=virtualbox-iso <template_name>.json
-    $ packer build -only=vmware-iso <template_name>.json
-
-Parallel builds can be run on 0.6.0 or latest packer version.
-
-    $ packer build -parallel=true <template_name>.json
-
-### Template Variations
-
-Each OS template is available in three different flavors:
-
-* `<os>-nocm.json`: Standard base box with vagrant user, guest additions, but without any configuration management preinstalled
-* `<os>-puppet.json`: Standard base box like above and with puppet already installed
-
-Pick those you need. If you need another flavor, please open up a PR.
-
 ### Supported versions
 
-These templates was tested using a packer 0.7.5.
+These templates was tested using a packer 1.6.2
 
 ## Credits
 
@@ -57,6 +38,7 @@ These packer templates were built by considering different sources of inspiraito
 * Mitchell Hashimoto (mitchellh)
 * Patrick Debois (jedi4ever)
 * 時雨堂(shiguredo)
+* Jeff Geerling (geerlingguy)
 
 ## Changelog
 
