@@ -11,7 +11,7 @@ date > /root/.vagrantbox_buildtime
 #
 echo 'Setting up home directory of user vagrant.'
 mkdir -pm 700 /home/vagrant/.ssh
-wget --no-check-certificate 'https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
+curl 'https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub' -o /home/vagrant/.ssh/authorized_keys
 chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant:vagrant /home/vagrant/.ssh
 
