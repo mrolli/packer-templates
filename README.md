@@ -20,6 +20,7 @@ If you are an macOS user consider installing packer using [Homebrew](http://brew
 
     $ brew tap homebrew/binary
     $ brew install packer
+    $ brew install packer-completion [optional for bash autocompletion]
 
 ### Running Packer
 
