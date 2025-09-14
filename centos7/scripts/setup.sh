@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+:x
 vbox_iso=VBoxGuestAdditions_$(cat /home/vagrant/.vbox_version).iso
-build_deps="bzip2 elfutils-libelf-devel gcc kernel-devel make perl"
+build_deps="bzip2 elfutils-libelf-devel gcc kernel-devel make perl kernel-headers"
 
 # Add build date and time
 date > /root/.vagrantbox_buildtime
@@ -27,13 +28,11 @@ echo "GSSAPIAuthentication no" >> /etc/ssh/sshd_config
 #
 echo 'Installing VirtualBox guest additions.'
 # Install build dependencies
-yum -y install $build_deps >/dev/null
-# Install the VirtualBox guest additions here
-echo 'Installing VirtualBox guest additions.'
-mount -o loop /home/vagrant/$vbox_iso /mnt
-yes|sh /mnt/VBoxLinuxAdditions.run --nox11 >/dev/null
-umount /mnt
+#yum -y install $build_deps >/dev/null
+#mount -o loop /home/vagrant/$vbox_iso /mnt
+#yes|sh /mnt/VBoxLinuxAdditions.run --nox11
+#umount /mnt
 # cleanup
-rm -f /home/vagrant/$vbox_iso
-yum -y erase $build_deps >/dev/null
+#rm -f /home/vagrant/$vbox_iso
+#yum -y erase $build_deps >/dev/null
 yum clean all
