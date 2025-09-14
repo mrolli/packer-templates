@@ -1,13 +1,16 @@
 # Packer Templates
 
+    I am not using the Packer/Vagrant workflow anymore, so this repository is
+    deprecated. Latest useful change was in 2021. The latest commmit only saves
+    latest unfinished work that is at least three years old.
+
 Packer templates for building base VM boxes. Curently the following operating systems
 are supported:
 
 * CentOS-7
 * CentOS-8
-* Ubuntu Server 14.04 (trusty) x86\_64
-* Ubuntu Server 16.04 (xenial) x86\_64
-* Ubuntu Server 18.04 (bionic) x86\_64
+* Ubuntu Server 20.04 x86\_64
+
 
 ## Usage
 
